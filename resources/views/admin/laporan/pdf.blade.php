@@ -95,13 +95,13 @@
         Link Konten: {{ $konten->original_link }}
     </div>
     
+    <!-- Tabel TANPA POSISI -->
     <table class="data">
         <thead>
             <tr>
                 <th>No</th>
                 <th>Nama Karyawan</th>
                 <th>Cabang</th>
-                <th>Posisi</th>
                 <th>Tanggal Upload</th>
                 <th>Status</th>
             </tr>
@@ -112,7 +112,6 @@
                 <td>{{ $index + 1 }}</td>
                 <td>{{ $item['nama'] }}</td>
                 <td>{{ $item['cabang'] }}</td>
-                <td>{{ $item['posisi'] }}</td>
                 <td>{{ $item['tanggal_upload'] }}</td>
                 <td class="{{ $item['status'] == 'Aktif' ? 'aktif' : 'tidak-aktif' }}">{{ $item['status'] }}</td>
             </tr>

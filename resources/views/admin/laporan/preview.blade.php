@@ -58,7 +58,7 @@
                 </div>
             </div>
             
-            <!-- Tabel Detail -->
+            <!-- Tabel Detail (TANPA POSISI) -->
             <div class="overflow-x-auto">
                 <table class="w-full border">
                     <thead class="bg-gray-100">
@@ -66,27 +66,25 @@
                             <th class="border px-3 py-2 text-left text-sm">No</th>
                             <th class="border px-3 py-2 text-left text-sm">Nama</th>
                             <th class="border px-3 py-2 text-left text-sm">Cabang</th>
-                            <th class="border px-3 py-2 text-left text-sm">Posisi</th>
                             <th class="border px-3 py-2 text-left text-sm">Tanggal Upload</th>
                             <th class="border px-3 py-2 text-left text-sm">Status</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($laporan as $index => $item)
-                            <tr>
-                                <td class="border px-3 py-2">{{ $index + 1 }}</td>
-                                <td class="border px-3 py-2">{{ $item['nama'] }}</td>
-                                <td class="border px-3 py-2">{{ $item['cabang'] }}</td>
-                                <td class="border px-3 py-2">{{ $item['posisi'] }}</td>
-                                <td class="border px-3 py-2">{{ $item['tanggal_upload'] }}</td>
-                                <td class="border px-3 py-2">
-                                    @if($item['status'] == 'Aktif')
-                                        <span class="bg-green-100 text-green-700 px-2 py-0.5 rounded-full text-xs">✅ Aktif</span>
-                                    @else
-                                        <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded-full text-xs">❌ Tidak Aktif</span>
-                                    @endif
-                                </td>
-                            </tr>
+                        <tr>
+                            <td class="border px-3 py-2">{{ $index + 1 }}</td>
+                            <td class="border px-3 py-2">{{ $item['nama'] }}</td>
+                            <td class="border px-3 py-2">{{ $item['cabang'] }}</td>
+                            <td class="border px-3 py-2">{{ $item['tanggal_upload'] }}</td>
+                            <td class="border px-3 py-2">
+                                @if($item['status'] == 'Aktif')
+                                    <span class="bg-green-100 text-green-700 px-2 py-0.5 rounded-full text-xs">✅ Aktif</span>
+                                @else
+                                    <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded-full text-xs">❌ Tidak Aktif</span>
+                                @endif
+                            </td>
+                        </tr>
                         @endforeach
                     </tbody>
                 </table>

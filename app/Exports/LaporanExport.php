@@ -35,7 +35,9 @@ class LaporanExport implements FromArray, WithHeadings, WithStyles
         $rows[] = ['Persentase Keaktifan', $this->data['persentase_keaktifan'] . '%'];
         $rows[] = [''];
         $rows[] = ['DETAIL KARYAWAN'];
-        $rows[] = ['No', 'Nama', 'Cabang', 'Posisi', 'Email', 'Tanggal Upload', 'Link Upload', 'Status'];
+        
+        // Header tabel TANPA POSISI
+        $rows[] = ['No', 'Nama', 'Cabang', 'Tanggal Upload', 'Link Upload', 'Status'];
         
         $no = 1;
         foreach ($this->data['laporan'] as $item) {
@@ -43,8 +45,6 @@ class LaporanExport implements FromArray, WithHeadings, WithStyles
                 $no++,
                 $item['nama'],
                 $item['cabang'],
-                $item['posisi'],
-                $item['email'],
                 $item['tanggal_upload'],
                 $item['link_upload'],
                 $item['status'],
@@ -63,10 +63,10 @@ class LaporanExport implements FromArray, WithHeadings, WithStyles
     {
         // Style header (bold)
         $sheet->getStyle('A1:A14')->getFont()->setBold(true);
-        $sheet->getStyle('A14:H14')->getFont()->setBold(true);
+        $sheet->getStyle('A14:F14')->getFont()->setBold(true);
         
         // Auto size kolom
-        foreach(range('A', 'H') as $col) {
+        foreach(range('A', 'F') as $col) {
             $sheet->getColumnDimension($col)->setAutoSize(true);
         }
         

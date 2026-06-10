@@ -66,7 +66,7 @@ class LaporanController extends Controller
             $laporan[] = [
                 'nama' => $k->name,
                 'cabang' => $k->cabang,
-                'posisi' => $k->posisi,
+                //'posisi' => $k->posisi,
                 'email' => $k->email,
                 'tanggal_upload' => $log ? date('d-m-Y', strtotime($log->uploaded_at)) : '-',
                 'link_upload' => $log ? $log->uploaded_link : '-',
